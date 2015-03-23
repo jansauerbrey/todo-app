@@ -19,18 +19,16 @@
   
 <!-- Template -->   
 <script type="text/ng-template" id="/todos.html">
-  <div class="form-group">
-    <label class="col-sm-1 control-label">Search</label>
-    <div class="col-sm-11">
-       <input type="text" ng-model="search.name" class="form-control">
-    </div>
+<div class="container">
+  <div class="row">
+       <input type="text" ng-model="search.name" class="form-control" placeholder="Search...">
   </div>
-  <div>
-  <ul class="list-unstyled">
-    <li ng-repeat="todo in todos | filter: search">
+  <div class="row">
+  <ul class="list-group">
+    <li ng-repeat="todo in todos | filter: search" class="list-group-item">
       <div class="form-group">
-        <input type="checkbox" ng-model="todo.completed" ng-change="update($index)" class="col-sm-1">
-          <a ng-show="!editing[$index]" href="#/" class="col-sm-2">{{todo.name}}</a>
+        <input type="checkbox" ng-model="todo.completed" ng-change="update($index)" class="col-xs-1">
+          <a ng-show="!editing[$index]" href="#/" class="col-xs-6">{{todo.name}}</a>
           <button ng-show="!editing[$index]" ng-click="edit($index)" class="btn btn-default">edit</button>
           <button ng-show="!editing[$index]" ng-click="remove($index)" class="btn btn-default">remove</button>
 
@@ -41,7 +39,10 @@
       </li>
     </ul>
   </div>
-  New task <input type="text" ng-model="newTodo"><button ng-click="save()" class="btn btn-default">create</button>
+  <div class="row">
+    New task <input type="text" ng-model="newTodo"><button ng-click="save()" class="btn btn-default">create</button>
+  </div>
+</div>
 </script>
 
 <script type="text/ng-template" id="/todoDetails.html">
